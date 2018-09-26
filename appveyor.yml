@@ -1,0 +1,23 @@
+version: build_{build}
+build:
+  verbosity: minimal
+
+image: Visual Studio 2015
+
+environment:
+  global:
+    THIRDPARTY_PKGS: >
+      assimp bullet3 eigen3 ffmpeg
+      freetype harfbuzz libjpeg-turbo
+      ode openal-soft openexr openssl
+      opus libpng tiff libvorbis zlib
+  matrix:
+  - VCPKG_DEFAULT_TRIPLET: x64-windows-static
+    OUTPUT_NAME: p3d_thirdparty_x64
+  - VCPKG_DEFAULT_TRIPLET: x86-windows-static
+    OUTPUT_NAME: p3d_thirdparty_x86
+
+build_script:
+- vcpkg install %THIRDPARTY_PKGS%
+- vcpkg export %THIRDPARTY_PKGS% --7zip --output=%OUTPUT_NAME%
+- appveyor PushArtifact %OUTPUT_NAME%.7z
