@@ -21,3 +21,9 @@ build_script:
 - vcpkg install %THIRDPARTY_PKGS%
 - vcpkg export %THIRDPARTY_PKGS% --7zip --output=%OUTPUT_NAME%
 - appveyor PushArtifact C:/Tools/vcpkg/%OUTPUT_NAME%.7z
+
+cache:
+- C:/Tools/vcpkg/packages/ffmpeg_x86-windows-static
+- C:/Tools/vcpkg/packages/ffmpeg_x64-windows-static
+- C:/Tools/vcpkg/packages/assimp_x86-windows-static
+- C:/Tools/vcpkg/packages/assimp_x64-windows-static
