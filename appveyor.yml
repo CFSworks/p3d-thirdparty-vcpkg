@@ -20,4 +20,4 @@ environment:
 build_script:
 - vcpkg install %THIRDPARTY_PKGS%
 - vcpkg export %THIRDPARTY_PKGS% --7zip --output=%OUTPUT_NAME%
-- appveyor PushArtifact %OUTPUT_NAME%.7z
+- appveyor PushArtifact C:/Tools/vcpkg/%OUTPUT_NAME%.7z
