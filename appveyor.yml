@@ -6,11 +6,13 @@ image: Visual Studio 2015
 
 environment:
   global:
+#   THIRDPARTY_PKGS: >
+#     assimp bullet3 eigen3 ffmpeg
+#     freetype harfbuzz libjpeg-turbo
+#     ode openal-soft openexr openssl
+#     opus libpng tiff libvorbis zlib
     THIRDPARTY_PKGS: >
-      assimp bullet3 eigen3 ffmpeg
-      freetype harfbuzz libjpeg-turbo
-      ode openal-soft openexr openssl
-      opus libpng tiff libvorbis zlib
+      assimp ffmpeg
   matrix:
   - VCPKG_DEFAULT_TRIPLET: x64-windows-static
     OUTPUT_NAME: p3d_thirdparty_x64
